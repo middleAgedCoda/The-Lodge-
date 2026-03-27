@@ -4,16 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Parliament Street Lodge · Gqeberha · Flexible Accommodation</title>
-  <meta name="description" content=" The Home away from Home whem you need it..."/>
-<meta property="og:title" content=" The Lodge"/>
-   <meta property="og:image" content="https://raw.githubusercontent.com/middleAgedCoda/The-Lodge-/main/Standard.png"/>
-<meta property="og:description" content="The Home away from home. Nightly and hourly rates availabl
-   walk-ins and bookings"/>
-<meta name="theme-color" content="#B85C7A"/>
-  <meta name="description" content="Affordable, clean rooms for hourly or nightly stays in the heart of Gqeberha CBD. Self-check-in, flexible arrangements. Safe, discreet, run by locals.">
+  <meta name="description" content="The Home away from Home when you need it...">
+  <meta property="og:title" content="The Lodge">
+  <meta property="og:image" content="https://raw.githubusercontent.com/middleAgedCoda/The-Lodge-/main/Standard.png">
+  <meta property="og:description" content="The Home away from home. Nightly and hourly rates available. Walk-ins and bookings">
+  <meta name="theme-color" content="#B85C7A">
   <meta name="keywords" content="lodge Gqeberha, Port Elizabeth accommodation, hourly rooms, cheap motel, Parliament Street">
   <meta name="author" content="Parliament Street Lodge">
-  <meta name="theme-color" content="#C6A15B">
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -51,6 +48,7 @@
       padding: 0 1.5rem;
     }
 
+    /* Enhanced button hover effects */
     .btn {
       display: inline-block;
       background: #C6A15B;
@@ -59,16 +57,35 @@
       text-decoration: none;
       border-radius: 40px;
       font-weight: 600;
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       border: none;
       cursor: pointer;
       font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn:hover {
       background: #D4B06C;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(198, 161, 91, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(198, 161, 91, 0.4);
     }
 
     .btn-outline {
@@ -77,9 +94,49 @@
       color: #C6A15B;
     }
 
+    .btn-outline::before {
+      background: linear-gradient(90deg, transparent, rgba(198,161,91,0.2), transparent);
+    }
+
     .btn-outline:hover {
       background: #C6A15B;
       color: #0A0A0A;
+    }
+
+    /* Dropdown navigation */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-select {
+      background: rgba(198, 161, 91, 0.15);
+      border: 1px solid rgba(198, 161, 91, 0.4);
+      border-radius: 40px;
+      padding: 0.6rem 1.2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #E0E0E0;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23C6A15B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 14px;
+      transition: all 0.2s;
+    }
+
+    .dropdown-select:hover {
+      background-color: rgba(198, 161, 91, 0.3);
+      border-color: #C6A15B;
+    }
+
+    .dropdown-select:focus {
+      outline: none;
+      border-color: #C6A15B;
+      box-shadow: 0 0 0 2px rgba(198, 161, 91, 0.2);
     }
 
     /* header */
@@ -101,6 +158,744 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #C6A15B;
+    }
+
+    .logo p {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #0F0F0F 0%, #2C2A29 100%);
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* features */
+    .features {
+      padding: 4rem 0;
+      background: #0A0A0A;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #C6A15B;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: #141414;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      border: 1px solid rgba(198, 161, 91, 0.1);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(198, 161, 91, 0.3);
+    }
+
+    .feature-card i {
+      font-size: 2.2rem;
+      color: #C6A15B;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #E0E0E0;
+    }
+
+    .feature-card p {
+      color: #A0A0A0;
+    }
+
+    /* rooms */
+    .rooms {
+      background: #0F0F0F;
+      padding: 4rem 0;
+    }
+
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .room-card {
+      background: #141414;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(198, 161, 91, 0.1);
+    }
+
+    .room-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+      border-color: rgba(198, 161, 91, 0.3);
+    }
+
+    /* Premium shimmer effect on first card */
+    .room-card:first-child {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a1a, #242424);
+    }
+    .room-card:first-child::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 35%,
+        rgba(198, 161, 91, 0.1) 45%,
+        rgba(198, 161, 91, 0.25) 50%,
+        rgba(198, 161, 91, 0.1) 55%,
+        transparent 65%,
+        transparent 100%
+      );
+      animation: shimmer 5s infinite linear;
+      pointer-events: none;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-30%) translateY(-30%) rotate(10deg); }
+      100% { transform: translateX(30%) translateY(30%) rotate(10deg); }
+    }
+
+    .room-img {
+      height: 180px;
+      background-color: #2C2A29;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    /* Removed placeholder text overlay */
+
+    .room-content {
+      padding: 1.5rem;
+    }
+
+    .room-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #C6A15B;
+    }
+
+    .room-desc {
+      color: #B0B0B0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .room-price {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #C6A15B;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .rate-detail {
+      font-size: 0.8rem;
+      color: #8A7F72;
+      margin-bottom: 1rem;
+    }
+
+    /* location & contact */
+    .info {
+      padding: 4rem 0;
+      background: #0A0A0A;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .map-placeholder {
+      background: #141414;
+      height: 280px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #B0B0B0;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+      border: 1px solid rgba(198, 161, 91, 0.2);
+    }
+
+    .contact-details {
+      background: #141414;
+      padding: 1.5rem;
+      border-radius: 24px;
+      border: 1px solid rgba(198, 161, 91, 0.2);
+    }
+
+    .contact-details p {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-details i {
+      width: 24px;
+      color: #C6A15B;
+    }
+
+    .contact-details a {
+      color: #C6A15B;
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #2C2A29;
+      border-radius: 12px;
+      font-family: inherit;
+      background: #1A1A1A;
+      color: #E0E0E0;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #C6A15B;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    /* ticker */
+    .ticker-wrap {
+      position: relative;
+      overflow: hidden;
+      background: #C6A15B;
+      padding: 10px 0;
+      z-index: 10;
+    }
+    .ticker {
+      display: flex;
+      width: max-content;
+      animation: ticker-scroll 30s linear infinite;
+    }
+    .ticker-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0A0A0A;
+      white-space: nowrap;
+      padding: 0 24px;
+    }
+    .ticker-item i {
+      margin: 0 8px;
+      font-style: normal;
+      color: rgba(10,10,10,0.5);
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* particles canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* loader */
+    .loader-wrapper {
+      position: fixed;
+      inset: 0;
+      background: #0A0A0A;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+    .loader-wrapper.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .house-canvas {
+      width: 180px;
+      height: 180px;
+    }
+
+    footer {
+      background: #0F0F0F;
+      color: #8A7F72;
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(198, 161, 91, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* mobile adjustments for contact form */
+    @media (max-width: 700px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .contact-details {
+        padding: 1rem;
+      }
+      form {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      input, textarea {
+        font-size: 0.9rem;
+      }
+      .contact-details p {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loader -->
+<div id="loader" class="loader-wrapper">
+  <canvas id="loaderCanvas" width="200" height="200" class="house-canvas"></canvas>
+</div>
+
+<!-- Particles background -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- Ticker (moving strip) -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">✦ Flexible Stays ✦</span>
+    <span class="ticker-item">✦ Hourly · Nightly · Weekly ✦</span>
+    <span class="ticker-item">✦ Self Check-in ✦</span>
+    <span class="ticker-item">✦ Gqeberha CBD ✦</span>
+    <span class="ticker-item">✦ Clean & Safe ✦</span>
+    <span class="ticker-item">✦ Discreet Service ✦</span>
+    <span class="ticker-item">✦ Flexible Stays ✦</span>
+    <span class="ticker-item">✦ Hourly · Nightly · Weekly ✦</span>
+    <span class="ticker-item">✦ Self Check-in ✦</span>
+    <span class="ticker-item">✦ Gqeberha CBD ✦</span>
+    <span class="ticker-item">✦ Clean & Safe ✦</span>
+    <span class="ticker-item">✦ Discreet Service ✦</span>
+  </div>
+</div>
+
+<header>
+  <div class="container header-container">
+    <div class="logo">
+      <h1>Parliament Street Lodge</h1>
+      <p>Gqeberha · Flexible Stays</p>
+    </div>
+    <!-- Dropdown navigation -->
+    <div class="nav-dropdown">
+      <select class="dropdown-select" id="navSelect">
+        <option value="#rooms">Rooms</option>
+        <option value="#rates">Rates</option>
+        <option value="#contact">Contact</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Clean, safe & flexible<br>accommodation in the CBD</h2>
+    <p>Hourly rates • Nightly stays • Self check‑in • Discreet & professional</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Inquire now</a>
+      <a href="#rooms" class="btn btn-outline">View rooms</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">Why stay with us</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-clock"></i>
+        <h3>Flexible hours</h3>
+        <p>Hourly, nightly, or weekly – we adapt to your schedule.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-key"></i>
+        <h3>Self check‑in</h3>
+        <p>Arrive any time, day or night. No waiting around.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Discreet & safe</h3>
+        <p>Quiet building, secure access, respectful environment.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-wifi"></i>
+        <h3>Basic essentials</h3>
+        <p>Clean bedding, fan, Wi‑Fi, and a private bathroom.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rooms" class="rooms">
+  <div class="container">
+    <h2 class="section-title">Our rooms</h2>
+    <div class="room-grid">
+      <!-- Standard Room (first card, with shimmer) -->
+      <div class="room-card">
+        <div class="room-img" style="background-image: url('https://raw.githubusercontent.com/middleAgedCoda/The-Lodge-/main/Standard.png'); background-size: cover;"></div>
+        <div class="room-content">
+          <h3 class="room-title">Standard Room</h3>
+          <p class="room-desc">Comfortable double bed, en‑suite bathroom, fan, fresh linen, and Wi‑Fi. Perfect for a short rest or overnight.</p>
+          <div class="room-price">From R350 / night</div>
+          <div class="rate-detail">Hourly: R100 – R150 (min 2 hrs)</div>
+          <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+      <!-- Budget Room -->
+      <div class="room-card">
+        <div class="room-img" style="background-image: url('https://raw.githubusercontent.com/middleAgedCoda/The-Lodge-/main/Budget.png'); background-size: cover;"></div>
+        <div class="room-content">
+          <h3 class="room-title">Budget Room</h3>
+          <p class="room-desc">Single bed, shared bathroom (if required), fan, clean space. For the budget‑conscious traveller.</p>
+          <div class="room-price">From R250 / night</div>
+          <div class="rate-detail">Hourly: R80 – R100</div>
+          <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+      <!-- Group Room / 2 Beds -->
+      <div class="room-card">
+        <div class="room-img" style="background-image: url('https://raw.githubusercontent.com/middleAgedCoda/The-Lodge-/main/Group.png'); background-size: cover;"></div>
+        <div class="room-content">
+          <h3 class="room-title">Twin / Group Room</h3>
+          <p class="room-desc">Two single beds, en‑suite, space for luggage. Ideal for small groups or colleagues.</p>
+          <div class="room-price">From R500 / night</div>
+          <div class="rate-detail">Hourly: R180 – R220</div>
+          <a href="#contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rates" class="features" style="background: #0A0A0A;">
+  <div class="container">
+    <h2 class="section-title">Flexible rates</h2>
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <p style="margin-bottom: 1.5rem; color: #B0B0B0;">No long‑term contracts. Pay as you stay. We keep it simple because life is complicated enough.</p>
+      <div style="background: #141414; padding: 1.5rem; border-radius: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 1px solid rgba(198, 161, 91, 0.2);">
+        <p><strong>⏱️ Hourly stays:</strong> R80 – R150 (minimum 2 hours)</p>
+        <p><strong>🌙 Nightly stays:</strong> R250 – R500</p>
+        <p><strong>📆 Weekly discount:</strong> 10% off for 5+ nights</p>
+        <p><i class="fas fa-phone-alt"></i> Call or WhatsApp for instant availability</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location" class="info">
+  <div class="container">
+    <div class="info-grid">
+      <div>
+        <h2 class="section-title" style="text-align: left;">Located in the heart of Gqeberha</h2>
+        <p style="margin-bottom: 1rem; color: #B0B0B0;">Parliament Street, Gqeberha CBD – close to shops, transport, and the historic Donkin Reserve. Easy access from the N2.</p>
+        <div class="map-placeholder">
+          <div>
+            <i class="fas fa-map-marker-alt" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
+            <strong>📍 Parliament Street, Gqeberha</strong><br>
+            Exact address shared upon booking.
+          </div>
+        </div>
+      </div>
+      <div id="contact">
+        <h2 class="section-title" style="text-align: left;">Get in touch</h2>
+        <div class="contact-details">
+          <p><i class="fas fa-phone-alt"></i> <strong>Call / WhatsApp:</strong> <a href="tel:+27625821290">+27 62 582 1290</a></p>
+          <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/27625821290">Click to message</a></p>
+          <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:stay@parliamentlodge.co.za">stay@parliamentlodge.co.za</a></p>
+          <hr style="margin: 1rem 0; border-color: #2C2A29;">
+          <p><small>We respond quickly. For urgent bookings, call is best.</small></p>
+
+          <!-- Simple contact form – replace with actual Formspree endpoint if needed -->
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="tel" name="phone" placeholder="Phone number">
+            <textarea name="message" rows="3" placeholder="Tell us what you need (dates, hours, etc.)"></textarea>
+            <button type="submit" class="btn" style="width: 100%;">Send enquiry</button>
+          </form>
+          <p style="font-size: 0.7rem; margin-top: 0.8rem; color: #8A7F72;">We never share your data. Your privacy matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Parliament Street Lodge – Gqeberha CBD. Run by locals, for anyone who needs a clean space.</p>
+    <p style="margin-top: 0.5rem;">Flexible • Discreet • Affordable</p>
+    <p style="margin-top: 1rem; font-size: 0.7rem;">
+      <a href="https://kuro-digital-acid-lime.onrender.com" target="_blank" style="color: #C6A15B; text-decoration: none;">Built by Kuro Digital</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // Dropdown navigation
+    const navSelect = document.getElementById('navSelect');
+    if (navSelect) {
+      navSelect.addEventListener('change', function() {
+        const target = this.value;
+        if (target && target !== '#') {
+          const element = document.querySelector(target);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+        // reset select to placeholder (optional)
+        this.blur();
+      });
+    }
+
+    // Loader canvas animation: house assembling
+    const canvas = document.getElementById('loaderCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const w = 200, h = 200;
+    canvas.width = w;
+    canvas.height = h;
+
+    let progress = 0;
+    const startTime = performance.now();
+    const duration = 4000; // 4 seconds
+
+    function drawHouse(p) {
+      ctx.clearRect(0, 0, w, h);
+      ctx.save();
+      ctx.translate(w/2, h/2 + 10);
+      
+      // walls
+      ctx.beginPath();
+      ctx.rect(-50, -30, 100, 80);
+      ctx.fillStyle = `rgba(198, 161, 91, ${Math.min(1, p * 1.5)})`;
+      ctx.fill();
+      ctx.strokeStyle = `rgba(255,255,255,${p})`;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      
+      // roof
+      ctx.beginPath();
+      ctx.moveTo(-60, -30);
+      ctx.lineTo(0, -90);
+      ctx.lineTo(60, -30);
+      ctx.fillStyle = `rgba(210, 180, 110, ${Math.min(1, p * 1.2)})`;
+      ctx.fill();
+      ctx.stroke();
+      
+      // door
+      ctx.beginPath();
+      ctx.rect(-15, 20, 30, 40);
+      ctx.fillStyle = `rgba(100, 70, 40, ${Math.min(1, p * 1.8)})`;
+      ctx.fill();
+      ctx.stroke();
+      
+      // windows
+      ctx.beginPath();
+      ctx.rect(-40, -5, 20, 20);
+      ctx.fillStyle = `rgba(200, 180, 120, ${Math.min(1, p * 1.6)})`;
+      ctx.fill();
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.rect(20, -5, 20, 20);
+      ctx.fill();
+      ctx.stroke();
+      
+      // chimney
+      ctx.beginPath();
+      ctx.rect(30, -60, 12, 30);
+      ctx.fillStyle = `rgba(150, 100, 50, ${Math.min(1, p * 1.4)})`;
+      ctx.fill();
+      ctx.stroke();
+      
+      // smoke
+      if (p > 0.7) {
+        for (let i = 0; i < 3; i++) {
+          ctx.beginPath();
+          ctx.arc(36, -75 - i*8, 3 + (Math.random() * 2), 0, Math.PI*2);
+          ctx.fillStyle = `rgba(220, 220, 200, ${(p-0.7)*1.5})`;
+          ctx.fill();
+        }
+      }
+      ctx.restore();
+    }
+
+    function animateLoader(now) {
+      const elapsed = now - startTime;
+      progress = Math.min(1, elapsed / duration);
+      drawHouse(progress);
+      if (progress < 1) {
+        requestAnimationFrame(animateLoader);
+      } else {
+        drawHouse(1);
+        setTimeout(() => {
+          const loader = document.getElementById('loader');
+          if (loader) loader.classList.add('hide');
+        }, 200);
+      }
+    }
+    requestAnimationFrame(animateLoader);
+
+    // Particles background
+    const pCanvas = document.getElementById('particles-canvas');
+    if (pCanvas) {
+      const pCtx = pCanvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      function resize() {
+        width = pCanvas.width = window.innerWidth;
+        height = pCanvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.3;
+          this.speedY = (Math.random() - 0.5) * 0.2;
+          this.opacity = Math.random() * 0.4 + 0.1;
+          this.color = `rgba(198, 161, 91, ${this.opacity})`;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x < 0) this.x = width;
+          if (this.x > width) this.x = 0;
+          if (this.y < 0) this.y = height;
+          if (this.y > height) this.y = 0;
+        }
+        draw() {
+          pCtx.beginPath();
+          pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          pCtx.fillStyle = this.color;
+          pCtx.fill();
+        }
+      }
+
+      function createParticles() {
+        particles = [];
+        for (let i = 0; i < 100; i++) {
+          particles.push(new Particle());
+        }
+      }
+      createParticles();
+
+      function animateParticles() {
+        pCtx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      window.addEventListener('resize', () => {
+        createParticles();
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>    }
 
     .logo h1 {
       font-size: 1.6rem;
